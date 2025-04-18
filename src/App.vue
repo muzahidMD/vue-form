@@ -1,28 +1,20 @@
 <script setup>
 import { reactive, ref } from 'vue';
-const displayImage = ref(true);
+const favColors = ref([]);
+// multiple checkbox array ofcourse use ref
 </script>
 
 <template>
   <section class="mx-auto container">
     <h1 class="text-2xl mb-10">Vue Form</h1>
-    <p class="mb-10">{{ displayImage }}</p>
-    <label for="">Display Random Image</label>
-    <input class="ml-2" type="checkbox" v-model="displayImage" />
-    <p class="mt-5">
-      <input type="radio" name="display" :value="true" v-model="displayImage"> On <br>
-      <input type="radio" name="display" :value="false" v-model="displayImage"> Off <br>
-    </p>
-    <img class="mt-10 mx-auto w-[500px]" v-show="displayImage"
-      src="https://images.unsplash.com/photo-1744882838449-b3ad2ceff9a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8"
-      alt="">
-
-    <!-- v-if is more expensive -->
-
-    <!-- <img class="mt-10 mx-auto w-[500px]" v-if="displayImage"
-      src="https://images.unsplash.com/photo-1744882838449-b3ad2ceff9a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8"
-      alt=""> -->
-
+    <p class="mb-10">{{ favColors }}</p>
+    Your favorite colors <br />
+    <label for="red"> Red </label>
+    <input class="ml-2 mr-2" type="checkbox" id="red" v-model="favColors" value="red">
+    <label for="green"> Green </label>
+    <input class="ml-2 mr-2" type="checkbox" id="Green" v-model="favColors" value="green">
+    <label for="blue"> Blue </label>
+    <input class="ml-2 mr-2" type="checkbox" id="Blue" v-model="favColors" value="blue">
   </section>
 </template>
 
