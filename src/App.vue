@@ -1,28 +1,23 @@
 <script setup>
 import { reactive, ref } from 'vue';
-const person = reactive({
-  name: "Muzahidul Islam",
-  age: 25,
-  job: "web developer",
-})
+const displayImage = ref(true);
 </script>
 
 <template>
   <section class="mx-auto container">
     <h1 class="text-2xl mb-10">Vue Form</h1>
-    <p class="mb-10">{{ person }} </p>
+    <p class="mb-10">{{ displayImage }}</p>
+    <label for="">Display Random Image</label>
+    <input class="ml-2" type="checkbox" v-model="displayImage" />
+    <img class="mt-10 mx-auto w-[500px]" v-show="displayImage"
+      src="https://images.unsplash.com/photo-1744882838449-b3ad2ceff9a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8"
+      alt="">
 
-    <!-- <div class="w-32 h-32 mt-10">
-      <label for="name">Name</label>
-      <input type="text" class="border border-gray-300 rounded-md p-2" v-model="person.name">
-      <input type="text" class="border border-gray-300 rounded-md p-2" v-model="person.age">
-      <input type="text" class="border border-gray-300 rounded-md p-2" v-model="person.job">
-    </div> -->
-    <div class="w-32 h-32 mt-10" v-for="(value, key, index) in person" :key="index">
-      <label for="name">{{ key }}</label>
-      <input type="text" class="border border-gray-300 rounded-md p-2" v-model="person[key]">
-    </div>
+    <!-- v-if is more expensive -->
 
+    <!-- <img class="mt-10 mx-auto w-[500px]" v-if="displayImage"
+      src="https://images.unsplash.com/photo-1744882838449-b3ad2ceff9a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8"
+      alt=""> -->
 
   </section>
 </template>
